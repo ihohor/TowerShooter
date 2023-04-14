@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 421}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 183
+  controlID: 62
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 58
+  controlID: 19
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 59
+  controlID: 108
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 425
     height: 629
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -299,9 +299,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 381
+    x: 425
     y: 73
-    width: 875
+    width: 989
     height: 608
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -362,9 +362,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: d65bc589e7f6e6143ab0844a7a4e620d, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: f09394d45aa9e42478ffe1317ce7cd59, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -5611351832831938110, guid: d65bc589e7f6e6143ab0844a7a4e620d, type: 2}
+  - m_Target: {fileID: 6887497520613503146, guid: f09394d45aa9e42478ffe1317ce7cd59, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -408,9 +408,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 32c5ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: 30fbffff
+      m_ExpandedIDs: 68a1ffff4aa4ffff20e3ffff3ce3ffff30fbffffc85d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -703,9 +703,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.60682076, y: 1.0230818, z: -4.4676266}
+    m_Target: {x: 310.50082, y: -217.8213, z: 324.34872}
     speed: 2
-    m_Value: {x: 0.60682076, y: 1.0230818, z: -4.4676266}
+    m_Value: {x: 310.50082, y: -217.8213, z: 324.34872}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -752,13 +752,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.42158684, y: -0.02425853, z: 0.011535543, w: -0.9065072}
+    m_Target: {x: -0.20870693, y: -0.36219123, z: 0.08380176, w: -0.9046799}
     speed: 2
-    m_Value: {x: -0.4215421, y: -0.024255956, z: 0.011534319, w: -0.90641105}
+    m_Value: {x: -0.20868509, y: -0.36215332, z: 0.08379299, w: -0.90458524}
   m_Size:
-    m_Target: 6.1562567
+    m_Target: 254.29977
     speed: 2
-    m_Value: 6.1562567
+    m_Value: 254.29977
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -776,7 +776,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.09058945, y: 0.1048581, z: 0.009296224, w: 0.9904167}
+  m_LastSceneViewRotation: {x: -0.2217807, y: -0.548338, z: 0.15391666, w: -0.791618}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -916,36 +916,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/GameEssentials/Scripts
+    - Assets/GameEssentials/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/GameEssentials/Scripts
+  - Assets/GameEssentials/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Ihor\Documents\GitHub\TowerShooter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 50610000
-    m_LastClickedID: 24912
+    m_SelectedIDs: 70610000
+    m_LastClickedID: 24944
     m_ExpandedIDs: 00000000226100002461000026610000286100002a6100002c6100003261000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Bullets
+      m_OriginalName: Bullets
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 31546
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -1037,7 +1037,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 702
-    width: 1257
+    width: 1415
     height: 289
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1114,7 +1114,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -120846
+  m_LastSelectedObjectID: -1234
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52

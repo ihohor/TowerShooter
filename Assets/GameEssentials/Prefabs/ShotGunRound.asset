@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31706f7350ca4504fb3f3de1562cb0d2, type: 3}
+  m_Name: ShotGunRound
+  m_EditorClassIdentifier: 
+  _bulletSpeed: 30
+  _lifeTime: 5
+  _rigidBodyMass: 100
+  _bulletPrefab: {fileID: 7626440247309565952, guid: 21a21478455cd1549ac6fa8573993505, type: 3}

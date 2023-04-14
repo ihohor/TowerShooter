@@ -3,11 +3,13 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform _mouseTarget;
-    [SerializeField] private Transform _bulletPrefab;
     [SerializeField] public Transform _bulletSpawn;
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private BulletManager _bulletManager;
 
+    private Bullet _bullet;
     private Vector3 _targetPosition;
+    private Transform _bulletPrefab;
 
     public void AimToMouse(Camera camera,bool onTop)
     {
@@ -32,8 +34,15 @@ public class Shooting : MonoBehaviour
         if (onTop)
             if (Input.GetMouseButtonDown(0))
             {
+                SetActivBullet();
                 Vector3 aimDirection = (_targetPosition - _bulletSpawn.position).normalized;
                 Instantiate(_bulletPrefab, _bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));           
             } 
+    }
+
+    private void SetActivBullet()
+    {
+        _bullet = _bulletManager.GetActiveBullet();
+        _bulletPrefab = _bullet.BulletPrefab;
     }
 }

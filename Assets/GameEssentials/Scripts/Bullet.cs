@@ -1,33 +1,17 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
-{
+
+[CreateAssetMenu(fileName = "New Bullet", menuName = "Bullet/Create new bullet", order = 51)]
+public class Bullet : ScriptableObject
+{    
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private float _lifeTime;
+    [SerializeField] private float _rigidBodyMass;
+    [SerializeField] private Transform _bulletPrefab;
 
-    private Rigidbody _bulletRigidBody;
-
-    private float _timeAlive;
-
-    private void Awake()
-    {
-        _bulletRigidBody = GetComponent<Rigidbody>();
-    }
-
-    private void Start()
-    {
-        _bulletRigidBody.velocity = transform.forward * _bulletSpeed;
-    }
-
-    private void Update()
-    {
-        _timeAlive += Time.deltaTime;
-        if (_timeAlive >= _lifeTime)
-            Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject);
-    }
+    public Transform BulletPrefab => _bulletPrefab;
+    public float RigidBodyMass => _rigidBodyMass;
+    public float BulletSpeed => _bulletSpeed;
+    public float LifeTime => _lifeTime;  
 }
