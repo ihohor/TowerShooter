@@ -3,33 +3,30 @@ using UnityEngine.UI;
 
 public class BulletManager : MonoBehaviour
 {
-    [SerializeField] private Bullet[] _bulletTypes;
+    [SerializeField] private BulletData[] _bullets;
     [SerializeField] private Button _changeBulletButton;
 
     private int _activeBulletIndex = 0;
 
     private void OnEnable()
     {
-        _changeBulletButton.onClick.AddListener(SwitchToNextBullet);
+        _changeBulletButton.onClick.AddListener(ChangeBulletType);
     }
 
     private void OnDisable()
     {
-        _changeBulletButton.onClick.RemoveListener(SwitchToNextBullet);
+        _changeBulletButton.onClick.RemoveListener(ChangeBulletType);
     }
 
-    public void SwitchToNextBullet()
+    private void ChangeBulletType()
     {
         _activeBulletIndex++;
-        if (_activeBulletIndex >= _bulletTypes.Length)
-        {
+        if (_activeBulletIndex >= _bullets.Length)
             _activeBulletIndex = 0;
-        }
-        Debug.Log(_activeBulletIndex);
     }
 
     public Bullet GetActiveBullet()
     {
-        return _bulletTypes[_activeBulletIndex];
+        return _bullets[_activeBulletIndex].BulletPrefab;
     }
 }

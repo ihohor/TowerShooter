@@ -1,51 +1,55 @@
+using GameEssentials.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
 
-
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IShootingman
 {
-    [SerializeField] private TowerTrigger _towerTrigger;
     [SerializeField] private Camera _camera;
     [SerializeField] private Rig _rig;
 
-    private AnimatorManager _animatorManager; 
+    private PlayerAnimator _playerAnimator;
     private NavMeshAgent _myAgent;
     private PathFinding _pathFinding;
     private Shooting _shooting;
 
-    private bool _onTop = false;
+    private bool _isShootMode;
 
-    private void OnEnable()
-    {
-        _towerTrigger.PlayerEnteredTrigger += SetShootingMode;
-    }
+    private const float MaxRigWeight = 1f;
 
-    private void OnDisable()
-    {
-        _towerTrigger.PlayerEnteredTrigger -= SetShootingMode;
-    }
-
-    private void Start()
+    private void Awake()
     {
         _myAgent = GetComponent<NavMeshAgent>();
-        _animatorManager = GetComponent<AnimatorManager>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
         _pathFinding = GetComponent<PathFinding>();
         _shooting = GetComponent<Shooting>();
     }
 
     private void Update()
     {
-        _animatorManager.SetAnimationSpeed(_myAgent,_onTop);
-        _pathFinding.FindPath(_myAgent,_onTop, _camera);
-        _shooting.AimToMouse(_camera, _onTop);
-        _shooting.Shoot(_onTop);
+        if (_isShootMode)
+        {
+            _shooting.AimToMouse(_camera);
+            _shooting.Shoot();
+        }
+        else
+        {
+            _playerAnimator.ChangeMoveSpeed(_myAgent.velocity.magnitude);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                var newDestination = _pathFinding.FindPath(_camera);
+
+                if (newDestination != default)
+                    _myAgent.SetDestination(newDestination);
+            }
+        }
     }
 
-    private void SetShootingMode()
+    public void StartShooting()
     {
-        _onTop = true;
-        _animatorManager.SetAiming();
-        _rig.weight = 1.0f;
+        _isShootMode = true;
+        _playerAnimator.StartAiming();
+        _rig.weight = MaxRigWeight;
     }
 }

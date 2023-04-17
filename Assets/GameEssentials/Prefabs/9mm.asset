@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31706f7350ca4504fb3f3de1562cb0d2, type: 3}
   m_Name: 9mm
   m_EditorClassIdentifier: 
-  _bulletSpeed: 50
+  _moveSpeed: 40
   _lifeTime: 3
-  _rigidBodyMass: 1
-  _bulletPrefab: {fileID: 7626440247309565952, guid: 7b2fc5cbd0dc120419166f4655472e57, type: 3}
+  _mass: 5
+  _bulletPrefab: {fileID: 7437000426066455127, guid: 7b2fc5cbd0dc120419166f4655472e57, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31706f7350ca4504fb3f3de1562cb0d2, type: 3}
   m_Name: ShotGunRound
   m_EditorClassIdentifier: 
-  _bulletSpeed: 30
+  _moveSpeed: 25
   _lifeTime: 5
-  _rigidBodyMass: 100
-  _bulletPrefab: {fileID: 7626440247309565952, guid: 21a21478455cd1549ac6fa8573993505, type: 3}
+  _mass: 100
+  _bulletPrefab: {fileID: 7437000426066455127, guid: 21a21478455cd1549ac6fa8573993505, type: 3}

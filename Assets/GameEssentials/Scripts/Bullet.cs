@@ -1,17 +1,33 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
+public class Bullet : MonoBehaviour
+{
+    [SerializeField] private BulletData _data;
 
-[CreateAssetMenu(fileName = "New Bullet", menuName = "Bullet/Create new bullet", order = 51)]
-public class Bullet : ScriptableObject
-{    
-    [SerializeField] private float _bulletSpeed;
-    [SerializeField] private float _lifeTime;
-    [SerializeField] private float _rigidBodyMass;
-    [SerializeField] private Transform _bulletPrefab;
+    private Rigidbody _rigidbody;
 
-    public Transform BulletPrefab => _bulletPrefab;
-    public float RigidBodyMass => _rigidBodyMass;
-    public float BulletSpeed => _bulletSpeed;
-    public float LifeTime => _lifeTime;  
+    private float _moveSpeed;
+    private float _maxLifeTime;
+    private float _currentLifeTime;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+        _maxLifeTime = _data.LifeTime;
+        _moveSpeed = _data.MoveSpeed;
+    }
+
+    private void Start()
+    {
+        _rigidbody.velocity = transform.forward * _moveSpeed;
+        _rigidbody.mass = _data.Mass;
+    }
+
+    private void Update()
+    {
+        _currentLifeTime += Time.deltaTime;
+        if (_currentLifeTime >= _maxLifeTime)
+            Destroy(gameObject);
+        //CHANGE TO POOL PATERN
+    }
 }
