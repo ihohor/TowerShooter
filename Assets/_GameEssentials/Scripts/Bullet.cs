@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
@@ -8,11 +9,10 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
-    private float _currentLifeTime;
-
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.mass = _mass;
     }
 
     private void OnEnable()
@@ -26,19 +26,8 @@ public class Bullet : MonoBehaviour
         _rigidbody.velocity = Vector3.zero;
     }
 
-    private void Start()
-    {
-        _rigidbody.mass = _mass;
-    }
-
-    public void SetDirection()
-    {
-    }
-
     private void Deacivate()
     {
         gameObject.SetActive(false);
     }
-
-
 }
