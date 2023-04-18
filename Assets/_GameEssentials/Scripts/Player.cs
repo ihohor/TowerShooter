@@ -10,13 +10,14 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
-    private PlayerAnimator _playerAnimator;
     private NavMeshAgent _myAgent;
+    private PlayerAnimator _playerAnimator;
     private PathFinding _pathFinding;
     private Shooting _shooting;
     private Aiming _aiming;
 
     private Vector3 _targetPosition;
+
 
     private void Awake()
     {

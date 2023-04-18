@@ -2051,6 +2051,7 @@ MonoBehaviour:
   _walkable:
     serializedVersion: 2
     m_Bits: 8
+  _maxDistance: 500
 --- !u!114 &6292828011972419981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,6 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70907c9142bdaf1488ff702c4d60cc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bodyAim: {fileID: 6292828010777531445}
 --- !u!114 &6292828011972419994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,7 +2094,6 @@ MonoBehaviour:
   _capacity: 20
   _bulletPrefab: {fileID: 7626440247309566013, guid: 7b2fc5cbd0dc120419166f4655472e57, type: 3}
   _bulletSpawn: {fileID: 6292828012002913875}
-  _rotationSpeed: 5
 --- !u!114 &1519723738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,6 +2107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseTarget: {fileID: 0}
+  _rotationSpeed: 5
 --- !u!1 &6642458204107820093
 GameObject:
   m_ObjectHideFlags: 0
