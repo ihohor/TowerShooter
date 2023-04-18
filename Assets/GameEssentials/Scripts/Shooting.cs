@@ -1,13 +1,19 @@
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class Shooting : BulletsPool
 {
-    [SerializeField] private BulletManager _bulletManager;
-    [SerializeField] public Transform _bulletSpawn;
-    [SerializeField] public Transform _mouseTarget;
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Transform _bulletSpawn;
+    [SerializeField] private Transform _mouseTarget;
+    [SerializeField] private Bullet _bullet;
     [SerializeField] private float _rotationSpeed;
 
     private Vector3 _targetPosition;
+
+    private void Start()
+    {
+        Initialize(_bulletPrefab);
+    }
 
     public void AimToMouse(Camera camera)
     {
@@ -28,8 +34,18 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 aimDirection = (_targetPosition - _bulletSpawn.position).normalized;
-            Instantiate(_bulletManager.GetActiveBullet(), _bulletSpawn.position, Quaternion.LookRotation(aimDirection, Vector3.up));
-            //CHANGE TO POOL PATERN
+
+            if (TryGetObject(out var bullet))
+            {
+                SetBullet(bullet, _bulletSpawn.position, aimDirection);
+            }
         }
+    }
+
+    private void SetBullet(GameObject bullet, Vector3 spawnPoint, Vector3 aimDirection)
+    {
+        bullet.transform.position = spawnPoint;
+        bullet.transform.rotation = Quaternion.LookRotation(aimDirection, Vector3.up);
+        bullet.SetActive(true);
     }
 }

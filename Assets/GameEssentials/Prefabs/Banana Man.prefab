@@ -1836,9 +1836,7 @@ GameObject:
   - component: {fileID: 6292828011972419973}
   - component: {fileID: 6292828011972419982}
   - component: {fileID: 6292828011972419981}
-  - component: {fileID: 6292828011972419972}
   - component: {fileID: 6292828011972419994}
-  - component: {fileID: 3876777006714584356}
   m_Layer: 0
   m_Name: Banana Man
   m_TagString: Player
@@ -2050,7 +2048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walkable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!114 &6292828011972419981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,21 +2061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70907c9142bdaf1488ff702c4d60cc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6292828011972419972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6599449580361037712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb5bb3bfb637824f92faff66271ea9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletManager: {fileID: 0}
-  _bulletSpawn: {fileID: 6292828012002913875}
-  _rotationSpeed: 5
 --- !u!114 &6292828011972419994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,20 +2075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
   _rig: {fileID: 6292828010475189936}
---- !u!114 &3876777006714584356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6599449580361037712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8329b57bfd69af541b8f6e47a67b7d0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bullets: []
-  _changeBulletButton: {fileID: 0}
+  _shooting: {fileID: 0}
 --- !u!1 &6642458204107820093
 GameObject:
   m_ObjectHideFlags: 0

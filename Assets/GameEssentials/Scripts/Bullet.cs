@@ -2,32 +2,43 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private BulletData _data;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _maxLifeTime;
+    [SerializeField] private float _mass;
 
     private Rigidbody _rigidbody;
 
-    private float _moveSpeed;
-    private float _maxLifeTime;
     private float _currentLifeTime;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _maxLifeTime = _data.LifeTime;
-        _moveSpeed = _data.MoveSpeed;
+    }
+
+    private void OnEnable()
+    {
+        Invoke("Deacivate", _maxLifeTime);
+        _rigidbody.velocity = transform.forward * _moveSpeed;
+    }
+
+    private void OnDisable()
+    {
+        _rigidbody.velocity = Vector3.zero;
     }
 
     private void Start()
     {
-        _rigidbody.velocity = transform.forward * _moveSpeed;
-        _rigidbody.mass = _data.Mass;
+        _rigidbody.mass = _mass;
     }
 
-    private void Update()
+    public void SetDirection()
     {
-        _currentLifeTime += Time.deltaTime;
-        if (_currentLifeTime >= _maxLifeTime)
-            Destroy(gameObject);
-        //CHANGE TO POOL PATERN
     }
+
+    private void Deacivate()
+    {
+        gameObject.SetActive(false);
+    }
+
+
 }

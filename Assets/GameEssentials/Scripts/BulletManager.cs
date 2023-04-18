@@ -3,8 +3,10 @@ using UnityEngine.UI;
 
 public class BulletManager : MonoBehaviour
 {
-    [SerializeField] private BulletData[] _bullets;
+    [SerializeField] private GameObject[] _bullets;
     [SerializeField] private Button _changeBulletButton;
+
+    public GameObject[] Bullets => _bullets;
 
     private int _activeBulletIndex = 0;
 
@@ -25,8 +27,8 @@ public class BulletManager : MonoBehaviour
             _activeBulletIndex = 0;
     }
 
-    public Bullet GetActiveBullet()
+    public GameObject GetActiveBullet()
     {
-        return _bullets[_activeBulletIndex].BulletPrefab;
+        return _bullets[_activeBulletIndex];
     }
 }
