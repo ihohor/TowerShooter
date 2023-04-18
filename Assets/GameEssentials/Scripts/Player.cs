@@ -1,21 +1,14 @@
-using GameEssentials.Scripts;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Animations.Rigging;
 
-public class Player : MonoBehaviour, IShootingman
+public class Player : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] private Rig _rig;
 
     private PlayerAnimator _playerAnimator;
     private NavMeshAgent _myAgent;
     private PathFinding _pathFinding;
     private Shooting _shooting;
-
-    private bool _isShootMode;
-
-    private const float MaxRigWeight = 1f;
 
     private void Awake()
     {
@@ -27,29 +20,26 @@ public class Player : MonoBehaviour, IShootingman
 
     private void Update()
     {
-        if (_isShootMode)
+        if (Input.GetMouseButtonDown(1))
         {
+            var newDestination = _pathFinding.FindPath(_camera);
+
+            if (newDestination != default)
+                _myAgent.SetDestination(newDestination);
+        }
+
+        if (_myAgent.hasPath)
+        {
+            _playerAnimator.StartRunning();
+            _playerAnimator.ChangeMoveSpeed(_myAgent.velocity.magnitude);
             _shooting.AimToMouse(_camera);
-            _shooting.Shoot();
         }
         else
         {
-            _playerAnimator.ChangeMoveSpeed(_myAgent.velocity.magnitude);
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                var newDestination = _pathFinding.FindPath(_camera);
-
-                if (newDestination != default)
-                    _myAgent.SetDestination(newDestination);
-            }
+            _shooting.AimToMouse(_camera);
+            _shooting.TurnToMouse();
+            _shooting.Shoot();
+            _playerAnimator.StartAiming();
         }
-    }
-
-    public void StartShooting()
-    {
-        _isShootMode = true;
-        _playerAnimator.StartAiming();
-        _rig.weight = MaxRigWeight;
     }
 }

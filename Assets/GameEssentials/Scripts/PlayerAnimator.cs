@@ -5,7 +5,7 @@ public class PlayerAnimator : MonoBehaviour
     private Animator _animator;
 
     private readonly int _speedAnimator = Animator.StringToHash("speed");
-    private readonly int _shootMode = Animator.StringToHash("OnTop");
+    private readonly int _shootMode = Animator.StringToHash("isShooting");
 
     private void Start()
     {
@@ -20,5 +20,10 @@ public class PlayerAnimator : MonoBehaviour
     public void StartAiming()
     {
         _animator.SetBool(_shootMode, true);
+    }
+
+    public void StartRunning()
+    {
+        _animator.SetBool(_shootMode, false);
     }
 }
